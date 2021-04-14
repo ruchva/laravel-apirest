@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    //ruta index, obtiene todos los registros
     public function index() 
     {
         $users = User::latest()->get();
@@ -16,6 +17,7 @@ class UserController extends Controller
         ]);
     }
     
+    //ruta store, guarda un registro y hace validaciones
     public function store(Request $request) 
     {
         $request->validate([
@@ -33,6 +35,7 @@ class UserController extends Controller
         return back();
     }
     
+    //ruta destroy, elimina un registro
     public function destroy(User $user) 
     {
         $user->delete();
